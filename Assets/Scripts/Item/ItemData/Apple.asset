@@ -22,6 +22,8 @@ MonoBehaviour:
   usable:
   - type: 2
     usingType: 1
-    value: 10
+    value: 100
     time: 5
+  weapon: 0
   equipPrefab: {fileID: 0}
+  stat: []

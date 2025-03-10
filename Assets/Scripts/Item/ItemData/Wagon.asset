@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e8d56634f1421a48aadb006ecce64f1, type: 3}
-  m_Name: Car
+  m_Name: Wagon
   m_EditorClassIdentifier: 
   ItemName: "\uCC28"
   description: "\uD0C0\uBCF4\uC138\uC694"

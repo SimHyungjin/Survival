@@ -196,7 +196,6 @@ public class UIInventory : MonoBehaviour
         {
             selectedItem = null;
             slots[selectedItemIndex].ItemData = null;
-            selectedItemIndex = -1;
             ClearSelectedItemWindow();
         }
         UpdateUI();
@@ -212,7 +211,6 @@ public class UIInventory : MonoBehaviour
                 if (slot.quantity <= 0)
                 {
                     slot.ItemData = null;
-                    slot.index = -1;
                 }
                 break;
             }
@@ -254,15 +252,15 @@ public class UIInventory : MonoBehaviour
                 }
                 else if (selectedItem.usable[i].type == UsableType.Health && selectedItem.usable[i].usingType == UsingType.Gradual)
                 {
-                    StartCoroutine(CharacterManager.Instance.Player.condition.health.CoroutineAdd(selectedItem.usable[i].value, selectedItem.usable[i].time));
+                    CharacterManager.Instance.Player.condition.health.StartCorouinteAdd(selectedItem.usable[i].value, selectedItem.usable[i].time);
                 }
                 else if (selectedItem.usable[i].type == UsableType.Hunger && selectedItem.usable[i].usingType == UsingType.Gradual)
                 {
-                    StartCoroutine(CharacterManager.Instance.Player.condition.hunger.CoroutineAdd(selectedItem.usable[i].value, selectedItem.usable[i].time));
+                    CharacterManager.Instance.Player.condition.hunger.StartCorouinteAdd(selectedItem.usable[i].value, selectedItem.usable[i].time);
                 }
                 else if (selectedItem.usable[i].type == UsableType.Stamina && selectedItem.usable[i].usingType == UsingType.Gradual)
                 {
-                    StartCoroutine(CharacterManager.Instance.Player.condition.stamina.CoroutineAdd(selectedItem.usable[i].value, selectedItem.usable[i].time));
+                    CharacterManager.Instance.Player.condition.stamina.StartCorouinteAdd(selectedItem.usable[i].value, selectedItem.usable[i].time);
                 }
             }
 

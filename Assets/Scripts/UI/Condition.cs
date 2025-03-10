@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,8 @@ public class Condition : MonoBehaviour
     public Image uiBar;
 
     public event Action onTakeDamage;
+
+    public Coroutine addCoroutine;
 
     private void Start()
     {
@@ -42,16 +45,22 @@ public class Condition : MonoBehaviour
         curValue = Mathf.Max(curValue - value, _minValue);
     }
 
+    public void StartCorouinteAdd(float value, float time)
+    {
+        StartCoroutine(CoroutineAdd(value, time));
+    }
     public IEnumerator CoroutineAdd(float value, float time)
     {
         float elapsedTime = 0f;
-
-        while (elapsedTime < time)
+        Debug.Log($"[Coroutine Start] Target Value: {value}, Duration: {time}");
+        while (elapsedTime <= time)
         {
             curValue = Mathf.Min(curValue + value * Time.deltaTime, maxValue);
             elapsedTime += Time.deltaTime;
+            Debug.Log($"ElapsedTime: {elapsedTime:F2}");
             yield return null;
         }
+        Debug.Log("[Coroutine Finished]");
     }
 
     public virtual void TakeOnDamage(float value)
