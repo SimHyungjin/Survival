@@ -1496,9 +1496,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39799ce838a8ad140ac0aaaac757a834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipe: {fileID: 11400000, guid: 33feb12b778f30945b94d1a051e50197, type: 2}
+  recipe:
+  - {fileID: 11400000, guid: 33feb12b778f30945b94d1a051e50197, type: 2}
+  - {fileID: 11400000, guid: 856d8d12175ef344fb0993756cd57fdd, type: 2}
+  - {fileID: 11400000, guid: 86dbdeb4814c700488a1fa7c7eee3fb3, type: 2}
+  - {fileID: 11400000, guid: 5e7bf7323ba8e344e95cfb8c5a2ef083, type: 2}
   inventory: {fileID: 369994271}
+  slots: []
+  slotPanel: {fileID: 1888850103}
   craftBtn: {fileID: 30806737}
+  emptyImage: {fileID: 21300000, guid: 81fc415f58467d740a2cb8df3838b85f, type: 3}
+  index: 0
 --- !u!1001 &284532425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6600,7 +6608,7 @@ PrefabInstance:
     - target: {fileID: 8532980629877864280, guid: 356f07fb398fe7e4cb255475acc3ebd2, type: 3}
       propertyPath: recipe
       value: 
-      objectReference: {fileID: 11400000, guid: 33feb12b778f30945b94d1a051e50197, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8532980629877864280, guid: 356f07fb398fe7e4cb255475acc3ebd2, type: 3}
       propertyPath: craftSystem
       value: 

@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7ccc9d15bd89143ae818bf2b42f4e2, type: 3}
   m_Name: JumpPad
   m_EditorClassIdentifier: 
-  materials: []
+  materials:
+  - item: {fileID: 11400000, guid: 78414c12add2ae94186c1dd35e7e6750, type: 2}
+    count: 4
+  icon: {fileID: 21300000, guid: 91dbfe8925b400c4cade9fddb51bcfdc, type: 3}
   resultItem: {fileID: 983160821887667927, guid: 8204cc141f5952949bc4e0b7f87413eb, type: 3}

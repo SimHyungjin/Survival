@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ public class UIInventory : MonoBehaviour
     public GameObject dropBtn;
 
     private PlayerController controller;
+
+    public Action addItem;
 
     ItemData selectedItem;
     int selectedItemIndex = 0;
@@ -89,6 +92,7 @@ public class UIInventory : MonoBehaviour
                 slot.quantity++;
                 UpdateUI();
                 CharacterManager.Instance.Player.itemData = null;
+                addItem?.Invoke();
                 return;
             }
         }
@@ -99,8 +103,10 @@ public class UIInventory : MonoBehaviour
             emptySlot.quantity = 1;
             UpdateUI();
             CharacterManager.Instance.Player.itemData = null;
+            addItem?.Invoke();
             return;
         }
+
         ThrowItem(data);
         CharacterManager.Instance.Player.itemData = null;
         return;
@@ -150,6 +156,8 @@ public class UIInventory : MonoBehaviour
                 UnEquip(i);
         }
         Instantiate(data.dropPrefab, CharacterManager.Instance.Player.dropPos.position, Quaternion.identity);
+        RemoveSelectedItem();
+        CharacterManager.Instance.Player.dropItem?.Invoke();
     }
 
     public void SelectItem(int index)
@@ -278,7 +286,6 @@ public class UIInventory : MonoBehaviour
     public void OnDropBtn()
     {
         ThrowItem(selectedItem);
-        RemoveSelectedItem();
     }
 
 }

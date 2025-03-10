@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca7ccc9d15bd89143ae818bf2b42f4e2, type: 3}
-  m_Name: House 2
+  m_Name: Load
   m_EditorClassIdentifier: 
   materials:
   - item: {fileID: 11400000, guid: 78414c12add2ae94186c1dd35e7e6750, type: 2}
-    count: 4
-  - item: {fileID: 11400000, guid: c342a0b7faa17574b8d30b39995af3ee, type: 2}
-    count: 2
-  resultItem: {fileID: 25926988489549533, guid: 83d1fb39fce5e3740b77adc0f37aad58, type: 3}
+    count: 1
+  icon: {fileID: 21300000, guid: b253217063dd7254687ddbaf401c3bc1, type: 3}
+  resultItem: {fileID: 3550062458838068468, guid: 8b5d4874092a6254aa26af8c635df4cf, type: 3}

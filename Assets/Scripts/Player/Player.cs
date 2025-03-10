@@ -12,9 +12,9 @@ public class Player : MonoBehaviour
     public Equip equip;
 
     public ItemData itemData;
+
     public Action addItem;
     public Action dropItem;
-
 
     public Transform dropPos;
     public Transform makePos;

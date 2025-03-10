@@ -15,5 +15,6 @@ public class CraftingRecipe : ScriptableObject
     }
     public MaterialRequirement[] materials;
 
+    public Sprite icon;
     public GameObject resultItem;
 }

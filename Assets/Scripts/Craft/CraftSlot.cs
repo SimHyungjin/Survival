@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class CraftSlot : MonoBehaviour
 {
     public CraftingRecipe recipe;
+    public Image icon;
     public CraftSystem craftSystem;
 
     public int index;
 
     public void OnClickBtn()
     {
-        craftSystem.recipe = recipe;
+        craftSystem.index = index;
     }
 }
