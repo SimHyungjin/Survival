@@ -202,14 +202,14 @@ public class UIInventory : MonoBehaviour
         UpdateUI();
     }
 
-    public void RemoveItemNum(ItemData data,int num)
+    public void RemoveItemNum(ItemData data, int num)
     {
-        foreach(var slot in slots)
+        foreach (var slot in slots)
         {
             if (slot.ItemData.ItemName == data.ItemName)
             {
                 slot.quantity -= num;
-                if(slot.quantity <= 0)
+                if (slot.quantity <= 0)
                 {
                     slot.ItemData = null;
                     slot.index = -1;
@@ -240,16 +240,32 @@ public class UIInventory : MonoBehaviour
         {
             for (int i = 0; i < selectedItem.usable.Length; i++)
             {
-                if (selectedItem.usable[i].type == UsableType.Health)
+                if (selectedItem.usable[i].type == UsableType.Health && selectedItem.usable[i].usingType == UsingType.Instant)
                 {
                     CharacterManager.Instance.Player.condition.health.Add(selectedItem.usable[i].value);
                 }
-                else if (selectedItem.usable[i].type == UsableType.Hunger)
+                else if (selectedItem.usable[i].type == UsableType.Hunger && selectedItem.usable[i].usingType == UsingType.Instant)
                 {
                     CharacterManager.Instance.Player.condition.hunger.Add(selectedItem.usable[i].value);
                 }
+                else if (selectedItem.usable[i].type == UsableType.Stamina && selectedItem.usable[i].usingType == UsingType.Instant)
+                {
+                    CharacterManager.Instance.Player.condition.stamina.Add(selectedItem.usable[i].value);
+                }
+                else if (selectedItem.usable[i].type == UsableType.Health && selectedItem.usable[i].usingType == UsingType.Gradual)
+                {
+                    StartCoroutine(CharacterManager.Instance.Player.condition.health.CoroutineAdd(selectedItem.usable[i].value, selectedItem.usable[i].time));
+                }
+                else if (selectedItem.usable[i].type == UsableType.Hunger && selectedItem.usable[i].usingType == UsingType.Gradual)
+                {
+                    StartCoroutine(CharacterManager.Instance.Player.condition.hunger.CoroutineAdd(selectedItem.usable[i].value, selectedItem.usable[i].time));
+                }
+                else if (selectedItem.usable[i].type == UsableType.Stamina && selectedItem.usable[i].usingType == UsingType.Gradual)
+                {
+                    StartCoroutine(CharacterManager.Instance.Player.condition.stamina.CoroutineAdd(selectedItem.usable[i].value, selectedItem.usable[i].time));
+                }
             }
-            
+
             RemoveSelectedItem();
         }
     }
@@ -277,7 +293,7 @@ public class UIInventory : MonoBehaviour
             SelectItem(selectedItemIndex);
         }
     }
-    
+
     public void OnUnEquipButton()
     {
         UnEquip(selectedItemIndex);

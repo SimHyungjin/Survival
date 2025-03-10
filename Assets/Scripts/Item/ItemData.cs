@@ -5,23 +5,38 @@ public enum ItemType
 {
     Equipable,
     Usable,
-    Resource
+    Resource,
 }
 public enum UsableType
 {
     Health,
     Hunger,
     Stamina,
-    Stat
 }
-
+public enum UsingType
+{
+    Instant,
+    Gradual
+}
+public enum StatType
+{
+    MoveSpeed,
+    jumpPower
+}
 [Serializable]
 public class ItemDataUsable
 {
     public UsableType type;
+    public UsingType usingType;
     public float value;
+    public float time;
 }
-
+[Serializable]
+public struct stat
+{
+    public StatType statType;
+    public string value;
+}
 [CreateAssetMenu(fileName ="Item",menuName ="New Item")]
 public class ItemData : ScriptableObject
 {
@@ -40,9 +55,8 @@ public class ItemData : ScriptableObject
     public ItemDataUsable[] usable;
 
     [Header("Equip")]
+    public bool weapon;
     public GameObject equipPrefab;
 
-    [Header("Craft Info")]
-    public bool canBeCrafted;
-    public CraftingRecipe[] craftingRecipes;
+    public stat[] stat;
 }

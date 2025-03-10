@@ -20,6 +20,5 @@ MonoBehaviour:
   canStack: 0
   stackCount: 0
   usable: []
+  weapon: 1
   equipPrefab: {fileID: 8013288321373886058, guid: b9afe788759ce704a81418ebef88c0ed, type: 3}
-  canBeCrafted: 0
-  craftingRecipes: []

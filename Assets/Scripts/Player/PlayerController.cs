@@ -4,8 +4,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    private float _originSpeed;
+    public float baseSpeed;
+    public float curSpeed;
     public float moveSpeed;
+    public float dashSpeed;
     public float jumpPower;
     public LayerMask groundLayerMask;
     public float useDashStamina;
@@ -35,7 +37,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
-        _originSpeed = moveSpeed;
+        baseSpeed = moveSpeed;
+        curSpeed = baseSpeed;
         Cursor.lockState = CursorLockMode.Locked;
         cam = Camera.main;
     }
@@ -63,7 +66,7 @@ public class PlayerController : MonoBehaviour
         _isDash = true;
         if (_isDash)
         {
-            moveSpeed = _originSpeed * 2f;
+            moveSpeed = curSpeed * dashSpeed;
             animator.SetBool("OnDash", true);
         }
     }
@@ -71,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isDash)
             return;
-        moveSpeed = _originSpeed;
+        moveSpeed = curSpeed;
         _isDash = false;
         animator.SetBool("OnDash", false);
     }
@@ -123,7 +126,7 @@ public class PlayerController : MonoBehaviour
         if (CharacterManager.Instance.Player.condition.stamina.curValue <= 1 && !_isExhaustion)
         {
             _isExhaustion = true;
-            moveSpeed = _originSpeed / 2;
+            moveSpeed = curSpeed / 2;
             if(_isDash)
             {
                 DashEnd();
@@ -132,7 +135,7 @@ public class PlayerController : MonoBehaviour
         if (CharacterManager.Instance.Player.condition.stamina.curValue >= 50 && _isExhaustion)
         {
             _isExhaustion = false;
-            moveSpeed = _originSpeed;
+            moveSpeed = curSpeed;
         }
     }
 

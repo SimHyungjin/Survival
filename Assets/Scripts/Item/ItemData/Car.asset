@@ -10,15 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e8d56634f1421a48aadb006ecce64f1, type: 3}
-  m_Name: Ax
+  m_Name: Car
   m_EditorClassIdentifier: 
-  ItemName: "\uB3C4\uB07C"
-  description: "\uC790\uC6D0\uC744 \uCC44\uCDE8\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  ItemName: "\uCC28"
+  description: "\uD0C0\uBCF4\uC138\uC694"
   type: 0
-  icon: {fileID: 21300000, guid: 06e8d836c76eb494db7ab3784ffcb0eb, type: 3}
-  dropPrefab: {fileID: 4371935859752301435, guid: fc3a7d1c5398e8d4691a7c2e23c65a26, type: 3}
+  icon: {fileID: 21300000, guid: ab29d75127a80104c8d2452bd6c1f32b, type: 3}
+  dropPrefab: {fileID: 4371935859752301435, guid: f32cb31094eb2684fa70fc0b25a0e56a, type: 3}
   canStack: 0
   stackCount: 0
   usable: []
-  weapon: 1
-  equipPrefab: {fileID: 4371935859752301435, guid: 1e64e9e5098f6704084c25d2256f3c79, type: 3}
+  weapon: 0
+  equipPrefab: {fileID: 4371935859752301435, guid: f32cb31094eb2684fa70fc0b25a0e56a, type: 3}
+  stat:
+  - statType: 0
+    value: 20
+  - statType: 1
+    value: 5

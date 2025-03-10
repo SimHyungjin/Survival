@@ -23,6 +23,10 @@ public class PlayerHandler : MonoBehaviour
         controller.IsGrounded();
         if(controller._isDash)
             CharacterManager.Instance.Player.condition.stamina.Substract(controller.useDashStamina * Time.deltaTime);
+        if (!controller.IsGrounded() && CharacterManager.Instance.Player.controller.rb.velocity.y < 0)
+        {
+            CharacterManager.Instance.Player.controller.rb.AddForce(Vector3.down * 30, ForceMode.Acceleration);
+        }
     }
 
     private void LateUpdate()

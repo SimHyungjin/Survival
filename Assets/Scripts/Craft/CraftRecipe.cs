@@ -7,6 +7,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "CraftingRecipe", menuName = "New Crafting Recipe")]
 public class CraftingRecipe : ScriptableObject
 {
+
     [Serializable]
     public struct MaterialRequirement
     {

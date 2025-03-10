@@ -42,6 +42,18 @@ public class Condition : MonoBehaviour
         curValue = Mathf.Max(curValue - value, _minValue);
     }
 
+    public IEnumerator CoroutineAdd(float value, float time)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < time)
+        {
+            curValue = Mathf.Min(curValue + value * Time.deltaTime, maxValue);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
     public virtual void TakeOnDamage(float value)
     {
         Substract(value);
